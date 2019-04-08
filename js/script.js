@@ -84,7 +84,7 @@ const quotes = [
     year: '2006'
   },
   {
-    quote: 'Motivation follows action',
+    quote: 'Motivation follows action.',
     source: 'Anon'
   },
   {
@@ -128,7 +128,7 @@ const quotes = [
     source: 'Ovid'
   },
   {
-    quote: 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything',
+    quote: 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything.',
     source: 'Albert Einstein'
   }
 ];
@@ -141,8 +141,6 @@ function getRandomQuote(array) {
   return randomQuote;
 }
 console.log(getRandomQuote(quotes));
-
-
 
 
 /***
@@ -158,6 +156,25 @@ console.log(getRandomQuote(quotes));
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
+function printQuote() {
+  let quote = getRandomQuote(quotes);
+  let quote_html = '';
+  let outputDiv;
+  
+  quote_html += `<p class="quote">${quote.quote}</p>`; 
+  quote_html += `<p class="source">${quote.source}`;
+  if (quote.citation) {
+    quote_html += `<span class="citation">${quote.citation}</span>`;
+  }
+  if (quote.year) {
+    quote_html += `<span class="year">${quote.year}</span>`;
+  }
+  quote_html += `</p>`;
+
+  outputDiv = document.getElementById('quote-box');
+  outputDiv.innerHTML = quote_html;
+}
+
 
 
 
@@ -168,7 +185,7 @@ console.log(getRandomQuote(quotes));
   comment.
 ***/
 
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
