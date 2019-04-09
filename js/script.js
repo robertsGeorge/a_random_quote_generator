@@ -191,19 +191,32 @@ e.g. between very dark colour and white text.
 function getRandomNum() {
   return Math.round(Math.random() * 125) + 50;
 }
-
+// refactor to get element and set property in one line?
 function printColour() {
   let randomRGB = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
-  targetBody = document.getElementById('body');
-  targetButton = document.getElementById('loadQuote');
+  let targetBody = document.getElementById('body');
+  let targetButton = document.getElementById('loadQuote');
   targetBody.style.backgroundColor = randomRGB;
   targetButton.style.backgroundColor = 'inherit';
 
-/*   to do:
-- targetButton.addEventListener("mouseover", reinstateHoverColour, false);
-function reinstate
- */}
+// correct issue with :hover background colour no longer being applied
+  targetButton.addEventListener("mouseover", function(event) {
+    event.target.style.backgroundColor = 'rgba(255,255,255,.25)';
+  }, false);
+  targetButton.addEventListener("mouseout", function(event) {
+    event.target.style.backgroundColor = 'inherit';
+  }, false);
+}
 
+/* function reinstateHoverColour() {
+  let targetButton = document.getElementById('loadQuote');
+  targetButton.style.backgroundColor = 'rgba(255,255,255,.25)';
+ }
+
+function removeHoverColour() {
+  let targetButton = document.getElementById('loadQuote');
+  targetButton.style.backgroundColor = 'inherit';
+} */
 
 /***
   When the "Show another quote" button is clicked, the event listener 
