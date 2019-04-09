@@ -196,11 +196,13 @@ function printColour() {
   let randomRGB = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
   targetBody = document.getElementById('body');
   targetButton = document.getElementById('loadQuote');
-  // targetButtonHover = document.querySelector('#loadQuote:hover')
   targetBody.style.backgroundColor = randomRGB;
-  targetButton.style.backgroundColor = randomRGB;
-  // targetButtonHover.style.backgroundColor = 'rgba(255,255,255,.25)';
-}
+  targetButton.style.backgroundColor = 'inherit';
+
+/*   to do:
+- targetButton.addEventListener("mouseover", reinstateHoverColour, false);
+function reinstate
+ */}
 
 
 /***
