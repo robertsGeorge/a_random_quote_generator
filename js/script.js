@@ -180,24 +180,26 @@ function printQuote() {
   printColour();
 }
 
-// Generate and return random number value from 0 - 255
-function getRandom0to255() {
-  return Math.round(Math.random() * 255);
+// Generate and return random number value from 0 - 175
+/* 
+Deliberately changed the min/max range from 0-255 to 50-175, 
+to prevent accessibility issue of low contrast 
+between white text and a light tone of colour,
+and to prevent unwanted aesthetics of too much contrast 
+e.g. between very dark colour and white text. 
+ */
+function getRandomNum() {
+  return Math.round(Math.random() * 125) + 50;
 }
-
-/* function getRandomRGB() {
-  let randomRGB = 
-    `rgb(${getRandom0to255()}, ${getRandom0to255()}, ${getRandom0to255()})`;
-  return randomRGB;
-}
-console.log(getRandomRGB()); */
 
 function printColour() {
-  let randomRGB = `rgb(${getRandom0to255()}, ${getRandom0to255()}, ${getRandom0to255()})`;
+  let randomRGB = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
   targetBody = document.getElementById('body');
   targetButton = document.getElementById('loadQuote');
+  // targetButtonHover = document.querySelector('#loadQuote:hover')
   targetBody.style.backgroundColor = randomRGB;
   targetButton.style.backgroundColor = randomRGB;
+  // targetButtonHover.style.backgroundColor = 'rgba(255,255,255,.25)';
 }
 
 
