@@ -3,7 +3,23 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
+/* To Do:
+
+- add more properties to the quotes object (e.g. tags)
+  --> what would be useful to see on the screen along with the quote?
+      - "also attributed to"?
+      - "audience"
+      - "variations" GO WITH THIS
+
+- When the quote changes, randomly change the background color of the page
+
+- Auto-refresh the quote: After a set amount of time, like 20 to 30 seconds, print a new quote to the page. A timing method like setInterval() is helpful here.
+
+- Replace comments with my own comments
+
+- Comment what grade you are going for ("Exceeds Expectations")
+  - annotate that additional property added is 'alt_source' and 'quote_variation'
+*/
 
 
 const quotes = [
@@ -37,7 +53,9 @@ const quotes = [
   },
   { 
     quote: 'Success is going from failure to failure without loss of enthusiasm.',
-    source: 'Winston Churchill'
+    source: 'Winston Churchill',
+    quote_variation: 'Success is the ability to move from one failure to another without loss of enthusiasm',
+    alt_source: 'Abraham Lincoln'
   },
   { 
     quote: 'Every person must decide whether he or she will walk in the light of creative altruism or in the darkness of destructive selfishness.',
@@ -105,7 +123,9 @@ const quotes = [
   },
   {
     quote: 'Courage is resistance to fear, mastery of fear - not absence of fear.',
-    source: 'Mark Twain'
+    source: 'Mark Twain',
+    citation: 'Pudd\'nhead Wilson',
+    year: '1894'
   },
   {
     quote: 'Do not wait to strike till the iron is hot, but make it hot by striking.',
@@ -117,7 +137,8 @@ const quotes = [
   },
   {
     quote: 'A journey of a thousand miles begins with a single step.',
-    source: 'Lau Tzu'
+    source: 'Lau Tzu',
+    alt_source: 'Confucious'
   },
   {
     quote: 'The trouble with not having a goal is that you can spend your life running up and down the field and never score.',
@@ -125,7 +146,7 @@ const quotes = [
   },
   {
     quote: 'Dripping water hollows out stone, not through force but through persistence.',
-    source: 'Ovid'
+    source: 'Ovid (Roman Poet)'
   },
   {
     quote: 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything.',
