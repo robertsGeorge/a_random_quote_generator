@@ -208,15 +208,6 @@ function printColour() {
   }, false);
 }
 
-/* function reinstateHoverColour() {
-  let targetButton = document.getElementById('loadQuote');
-  targetButton.style.backgroundColor = 'rgba(255,255,255,.25)';
- }
-
-function removeHoverColour() {
-  let targetButton = document.getElementById('loadQuote');
-  targetButton.style.backgroundColor = 'inherit';
-} */
 
 /***
   When the "Show another quote" button is clicked, the event listener 
