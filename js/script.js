@@ -180,16 +180,24 @@ function printQuote() {
 }
 
 // Generate and return random number value from 0 - 255
-function getRandom_0_to_255() {
+function getRandom0to255() {
   return Math.round(Math.random() * 255);
 }
 
-function getRandomRGB() {
+
+/* function getRandomRGB() {
   let randomRGB = 
-    `rgb(${getRandom_0_to_255()}, ${getRandom_0_to_255()}, ${getRandom_0_to_255()})`;
+    `rgb(${getRandom0to255()}, ${getRandom0to255()}, ${getRandom0to255()})`;
   return randomRGB;
 }
-console.log(getRandomRGB());
+console.log(getRandomRGB()); */
+
+
+function printColour() {
+  let randomRGB = `rgb(${getRandom0to255()}, ${getRandom0to255()}, ${getRandom0to255()})`;
+  targetElement = document.getElementById('body');
+  targetElement.style.backgroundColor = randomRGB;
+}
 
 
 /***
