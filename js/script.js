@@ -158,7 +158,7 @@ console.log(getRandomQuote(quotes));
 
 
 function printQuote() {
-  let quote = getRandomQuote(quotes);
+  let quote = getRandomQuote(quotes);                 
   let quote_html = '';
   let outputDiv;
   
@@ -174,12 +174,22 @@ function printQuote() {
     quote_html += `<span class="year">${quote.year}</span>`;
   }
   quote_html += `</p>`;
-
+                 
   outputDiv = document.getElementById('quote-box');
   outputDiv.innerHTML = quote_html;
 }
 
+// Generate and return random number value from 0 - 255
+function getRandom_0_to_255() {
+  return Math.round(Math.random() * 255);
+}
 
+function getRandomRGB() {
+  let randomRGB = 
+    `rgb(${getRandom_0_to_255()}, ${getRandom_0_to_255()}, ${getRandom_0_to_255()})`;
+  return randomRGB;
+}
+console.log(getRandomRGB());
 
 
 /***
