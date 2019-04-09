@@ -177,13 +177,13 @@ function printQuote() {
                  
   outputDiv = document.getElementById('quote-box');
   outputDiv.innerHTML = quote_html;
+  printColour();
 }
 
 // Generate and return random number value from 0 - 255
 function getRandom0to255() {
   return Math.round(Math.random() * 255);
 }
-
 
 /* function getRandomRGB() {
   let randomRGB = 
@@ -192,11 +192,12 @@ function getRandom0to255() {
 }
 console.log(getRandomRGB()); */
 
-
 function printColour() {
   let randomRGB = `rgb(${getRandom0to255()}, ${getRandom0to255()}, ${getRandom0to255()})`;
-  targetElement = document.getElementById('body');
-  targetElement.style.backgroundColor = randomRGB;
+  targetBody = document.getElementById('body');
+  targetButton = document.getElementById('loadQuote');
+  targetBody.style.backgroundColor = randomRGB;
+  targetButton.style.backgroundColor = randomRGB;
 }
 
 
