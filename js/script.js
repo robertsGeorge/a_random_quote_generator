@@ -5,12 +5,6 @@ project 1 - A Random Quote Generator
 
 /* To Do:
 
-- add more properties to the quotes object (e.g. tags)
-  --> what would be useful to see on the screen along with the quote?
-      - "also attributed to"?
-      - "audience"
-      - "variations" GO WITH THIS
-
 - When the quote changes, randomly change the background color of the page
 
 - Auto-refresh the quote: After a set amount of time, like 20 to 30 seconds, print a new quote to the page. A timing method like setInterval() is helpful here.
@@ -18,7 +12,7 @@ project 1 - A Random Quote Generator
 - Replace comments with my own comments
 
 - Comment what grade you are going for ("Exceeds Expectations")
-  - annotate that additional property added is 'alt_source' and 'quote_variation'
+  - annotate that additional property added is 'alt_source'
 */
 
 
@@ -54,7 +48,6 @@ const quotes = [
   { 
     quote: 'Success is going from failure to failure without loss of enthusiasm.',
     source: 'Winston Churchill',
-    quote_variation: 'Success is the ability to move from one failure to another without loss of enthusiasm',
     alt_source: 'Abraham Lincoln'
   },
   { 
@@ -164,19 +157,6 @@ function getRandomQuote(array) {
 console.log(getRandomQuote(quotes));
 
 
-/***
-  Create the `printQuote` function to: 
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND 
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
-
 function printQuote() {
   let quote = getRandomQuote(quotes);
   let quote_html = '';
@@ -184,6 +164,9 @@ function printQuote() {
   
   quote_html += `<p class="quote">${quote.quote}</p>`; 
   quote_html += `<p class="source">${quote.source}`;
+  if (quote.alt_source) {
+    quote_html += ` (or ${quote.alt_source})`;
+  }
   if (quote.citation) {
     quote_html += `<span class="citation">${quote.citation}</span>`;
   }
