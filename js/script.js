@@ -42,10 +42,6 @@ const quotes = [
     source: 'Martin Luther King'
   },
   { 
-    quote: 'Imagination is more important than knowledge. For knowledge is limited to all we know and understand, while imagination embraces the entire world, and all there ever will be to know and understand.',
-    source: 'Albert Einstein'
-  },
-  { 
     quote: 'Success is going from failure to failure without loss of enthusiasm.',
     source: 'Winston Churchill',
     alt_source: 'Abraham Lincoln'
@@ -176,9 +172,14 @@ function printQuote() {
   printColour();
 }
 
-/* Generate and return random number value from 0 - 175 to use as RGB color values that fit within accessibility contrast considerations (relative to white text), plus aesthetic considerations */
+/* 
+Generate and return random number value from 50 - 125
+to use as RGB color values that fit within accessibility 
+contrast considerations (relative to white text), 
+plus aesthetic considerations. 
+*/
 function getRandomNum() {
-  return Math.round(Math.random() * 125) + 50;
+  return Math.round(Math.random() * 75) + 50;
 }
 
 // TO DO: refactor to get element and set property in one line?
@@ -198,14 +199,6 @@ function printColour() {
   }, false);
 }
 
-
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
-
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 /* 
@@ -215,5 +208,3 @@ Also print a random colour each time app is started.
 */
 printQuote();
 printColour();
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
