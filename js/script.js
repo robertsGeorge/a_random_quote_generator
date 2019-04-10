@@ -189,19 +189,22 @@ function getRandomNum() {
   return Math.round(Math.random() * 75) + 50;
 }
 
-// TO DO: refactor to get element and set property in one line?
 function printColour() {
   let randomRGB = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
-  let targetBody = document.getElementById('body');
-  let targetButton = document.getElementById('loadQuote');
-  targetBody.style.backgroundColor = randomRGB;
-  targetButton.style.backgroundColor = 'inherit';
+  let bodyElement = document.getElementById('body');
+  let buttonElement = document.getElementById('loadQuote');
+  
+  bodyElement.style.backgroundColor = randomRGB;
+  buttonElement.style.backgroundColor = 'inherit';
 
-// correct issue with :hover background colour no longer being applied
-  targetButton.addEventListener("mouseover", function(event) {
+  /*
+  Address issue with :hover background-color pseudo class styling
+  no longer being applied to button after first button click
+  */
+  buttonElement.addEventListener("mouseover", function(event) {
     event.target.style.backgroundColor = 'rgba(255,255,255,.25)';
   }, false);
-  targetButton.addEventListener("mouseout", function(event) {
+  buttonElement.addEventListener("mouseout", function(event) {
     event.target.style.backgroundColor = 'inherit';
   }, false);
 }
