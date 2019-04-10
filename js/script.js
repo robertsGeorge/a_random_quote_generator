@@ -71,10 +71,6 @@ const quotes = [
     source: 'Pablo Picasso'
   },
   { 
-    quote: 'Well, while I\'m here, I\'ll do the work. And what\'s the work? To ease the pain of living. Everything else, drunken dumbshow.',
-    source: 'Allen Ginsberg'
-  },
-  { 
     quote: 'To know and not to do is not yet to know.',
     source: 'Buddhist proverb'
   },
@@ -180,18 +176,12 @@ function printQuote() {
   printColour();
 }
 
-// Generate and return random number value from 0 - 175
-/* 
-Deliberately changed the min/max range from 0-255 to 50-175, 
-to prevent accessibility issue of low contrast 
-between white text and a light tone of colour,
-and to prevent unwanted aesthetics of too much contrast 
-e.g. between very dark colour and white text. 
- */
+/* Generate and return random number value from 0 - 175 to use as RGB color values that fit within accessibility contrast considerations (relative to white text), plus aesthetic considerations */
 function getRandomNum() {
   return Math.round(Math.random() * 125) + 50;
 }
-// refactor to get element and set property in one line?
+
+// TO DO: refactor to get element and set property in one line?
 function printColour() {
   let randomRGB = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
   let targetBody = document.getElementById('body');
@@ -218,5 +208,12 @@ function printColour() {
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+/* 
+Print a random quote from quotes array on first program load 
+(so that user is not served same quote everytime they start the app.
+Also print a random colour each time app is started.
+*/
+printQuote();
+printColour();
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
