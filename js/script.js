@@ -3,16 +3,21 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-/* To Do:
-
-- Replace comments with my own comments
-
-- Comment what grade you are going for ("Exceeds Expectations")
-  - annotate that additional property added is 'alt_source'
-
-*/
 
 
+/***
+Dear Reviewer,
+
+Just to let you know I am trying for an 'Exceeds Expectations' grade (but do not mind if I only pass with a Meets Expectations grade)
+ - I've added this extra property to a few of the quote objects: 'alt_source' (i.e. if a quote is attributed to more than one person), plus added corresponding conditional statement
+ - I've added a random background colour each time the button is pressed, using getRandomNum() and printColour() functions
+ - I've used the setInterval() method to auto-refresh the quote (and colour) every 20secs
+ ***/ 
+
+
+
+ 
+// An array of objects, each object containing quotes and other related properties
 const quotes = [
   {
     quote: 'No pessimist ever discovered the secret of the stars or sailed an uncharted land, or opened a new doorway for the human spirit.',
@@ -136,22 +141,21 @@ const quotes = [
     source: 'Albert Einstein'
   }
 ];
-console.log(quotes);
 
+// return a quote object from the quotes array at random
 function getRandomQuote(array) {
-  // random number from 0 up to but not including array.length 
+  // random number from 0 to 1 less than array.length (i.e. up to last index position)
   let randomIndex = Math.floor(Math.random() * array.length); 
   let randomQuote = array[randomIndex];
   return randomQuote;
 }
-console.log(getRandomQuote(quotes));
-
-
+/* conditionally print the properties of a random object from the quotes array to the web page as a string of HTML. 
+Also call the printColour() function, so that when a new quote is called, the background colour changes too */
 function printQuote() {
   let quote = getRandomQuote(quotes);                 
   let quote_html = '';
   let outputDiv;
-  
+  // Incrementally build up the string of HTML
   quote_html += `<p class="quote">${quote.quote}</p>`; 
   quote_html += `<p class="source">${quote.source}`;
   if (quote.alt_source) {
@@ -164,26 +168,23 @@ function printQuote() {
     quote_html += `<span class="year">${quote.year}</span>`;
   }
   quote_html += `</p>`;
-                 
+  // print the string of html to the page               
   outputDiv = document.getElementById('quote-box');
   outputDiv.innerHTML = quote_html;
-  /* 
-  call printColour() to generate a random background-colour 
-  each time 'show another quote' button is pressed.
-  */  
+  // also reset the background colour with a random value
   printColour();
 }
 
-/* 
-Generate and return random number value from 50 - 125
+/* Generate and return random number value from 50 - 125
 to use as RGB color values that fit within accessibility 
 contrast considerations (relative to white text), 
-plus aesthetic considerations. 
-*/
+plus aesthetic considerations. */
 function getRandomNum() {
   return Math.round(Math.random() * 75) + 50;
 }
 
+/* Calling on the getRandomNum() function, generate a string containing an RGB value, 
+and set the background colour of the body and button elements to this value */
 function printColour() {
   let randomRGB = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
   let bodyElement = document.getElementById('body');
@@ -192,10 +193,8 @@ function printColour() {
   bodyElement.style.backgroundColor = randomRGB;
   buttonElement.style.backgroundColor = 'inherit';
 
-  /*
-  Address issue with :hover background-color pseudo class styling
-  no longer being applied to button after first button click
-  */
+  /* Address issue with :hover background-color pseudo class styling
+  no longer being applied to button after first button click */
   buttonElement.addEventListener("mouseover", function(event) {
     event.target.style.backgroundColor = 'rgba(255,255,255,.25)';
   }, false);
@@ -206,13 +205,9 @@ function printColour() {
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-
-
-/* 
-Print a random quote from quotes array on first program load 
+/* Print a random quote from quotes array on first program load 
 (so that user is not served same quote everytime they start the app.
-Also print a random colour each time app is started.
-*/
+Also print a random colour each time app is started. */
 printQuote();
 
 // change the quote (and background colour) automatically every 20secs
