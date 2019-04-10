@@ -5,14 +5,17 @@ project 1 - A Random Quote Generator
 
 /* To Do:
 
-- When the quote changes, randomly change the background color of the page
 
-- Auto-refresh the quote: After a set amount of time, like 20 to 30 seconds, print a new quote to the page. A timing method like setInterval() is helpful here.
+- load and use different font
+
+- refactor printQuote()
 
 - Replace comments with my own comments
 
 - Comment what grade you are going for ("Exceeds Expectations")
   - annotate that additional property added is 'alt_source'
+
+- add more quotes from Best self book
 */
 
 
@@ -169,6 +172,10 @@ function printQuote() {
                  
   outputDiv = document.getElementById('quote-box');
   outputDiv.innerHTML = quote_html;
+  /* 
+  call printColour() to generate a random background-colour 
+  each time 'show another quote' button is pressed.
+  */  
   printColour();
 }
 
@@ -201,10 +208,14 @@ function printColour() {
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+
+
 /* 
 Print a random quote from quotes array on first program load 
 (so that user is not served same quote everytime they start the app.
 Also print a random colour each time app is started.
 */
 printQuote();
-printColour();
+
+// change the quote (and background colour) automatically every 20secs
+setInterval(printQuote, 20000);
