@@ -15,7 +15,7 @@ Just to let you know I am trying for an 'Exceeds Expectations' grade (but do not
  ***/ 
 
 
-/* 'autoRefresh' variable below will hold the setInterval() method, 
+/* 'autoRefresh' global variable below will hold the setInterval() method, 
 enabling it to be reset by passing this variable to clearInterval(). 
 This setting and resetting of the interval happens each time 
 the show another quote button is clicked, 
@@ -180,7 +180,9 @@ function printQuote() {
   // also reset the background colour with a random value
   printColour();
 
-  // set autoRefresh of quote; then reset it on subsequent calls of printQuote()
+  /* auto-refresh the quote after 20secs. Then on subsequent calls of printQuote()
+  clear and reset the auto-refresh inverval, 
+  to avoid clashing with user-initiated requests for a new quote.  */  
   if (autoRefresh) {
     clearInterval(autoRefresh);
   }
