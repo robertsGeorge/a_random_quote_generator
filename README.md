@@ -13,3 +13,4 @@ Arrays, Objects, Math.methods, Events, the DOM:
 
 ## To Do:
 - Add extra quote objects to quotes array, sourcing from self journal
+- Explore making the theme environmental, with the quotes displayed over a different random environmental destruction (or solution) image each time the user clicks 'show another quote', plus add a title such as 'Environmental Action Motivational Quotes'
