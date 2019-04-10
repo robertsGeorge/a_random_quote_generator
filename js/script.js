@@ -5,17 +5,11 @@ project 1 - A Random Quote Generator
 
 /* To Do:
 
-
-- load and use different font
-
-- refactor printQuote()
-
 - Replace comments with my own comments
 
 - Comment what grade you are going for ("Exceeds Expectations")
   - annotate that additional property added is 'alt_source'
 
-- add more quotes from Best self book
 */
 
 
@@ -134,7 +128,8 @@ const quotes = [
   },
   {
     quote: 'Dripping water hollows out stone, not through force but through persistence.',
-    source: 'Ovid (Roman Poet)'
+    source: 'Ovid (Roman Poet)',
+    year: 'Circa 10 BCE'
   },
   {
     quote: 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything.',
