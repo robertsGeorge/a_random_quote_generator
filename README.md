@@ -8,7 +8,7 @@ Arrays, Objects, Math.methods, Events, the DOM:
 - Generating random numbers, for random background-colours and for selecting Array Elements
 - Use of event listeners to control HTML element styling
 - Building up a string of HTML using template literals and conditional statements, and printing it to the page using the DOM
-- setInterval() method
+- setInterval() and clearInterval() methods, to auto-refresh content in-lieu of user actions
 
 
 ## To Do:

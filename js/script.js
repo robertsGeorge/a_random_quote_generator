@@ -15,8 +15,14 @@ Just to let you know I am trying for an 'Exceeds Expectations' grade (but do not
  ***/ 
 
 
+/* 'autoRefresh' variable below will hold the setInterval() method, 
+enabling it to be reset by passing this variable to clearInterval(). 
+This setting and resetting of the interval happens each time 
+the show another quote button is clicked, 
+to prevent the auto-refresh clashing with user initiated quote changes. 
+The code is inside the printQuote() function.*/
+let autoRefresh;
 
- 
 // An array of objects, each object containing quotes and other related properties
 const quotes = [
   {
@@ -173,6 +179,12 @@ function printQuote() {
   outputDiv.innerHTML = quote_html;
   // also reset the background colour with a random value
   printColour();
+
+  // set autoRefresh of quote; then reset it on subsequent calls of printQuote()
+  if (autoRefresh) {
+    clearInterval(autoRefresh);
+  }
+  autoRefresh = setInterval(printQuote, 20000);
 }
 
 /* Generate and return random number value from 50 - 125
@@ -210,5 +222,4 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 Also print a random colour each time app is started. */
 printQuote();
 
-// change the quote (and background colour) automatically every 20secs
-setInterval(printQuote, 20000);
+
